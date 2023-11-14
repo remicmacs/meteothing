@@ -1,13 +1,14 @@
 from bs4 import BeautifulSoup
+import requests
 
 filename = '20231108.html'
 
-# Apparently this website is not using UTF encoding for some reason
-with open(filename, 'r', encoding='ISO-8859-1') as file:
-    file_contents = file.read()
+url = "https://www.meteociel.fr/temps-reel/obs_villes.php?code2=59512001&jour2=12&mois2=9&annee2=2023&affint=1"
+r = requests.get(url)
 
-# TODO: handle if no contents
-soup = BeautifulSoup(file_contents, 'html.parser')
+# Apparently this website is not using UTF encoding for some reason
+# But requests doesn't seem to care so all is well
+soup = BeautifulSoup(r.text, 'html.parser')
 
 # select all td tags in the relevant summary table
 tds = soup.select(".Style1 table[bgcolor='#FFFF99'] > tr:nth-child(2) td")
