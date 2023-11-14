@@ -3,7 +3,11 @@ import requests
 
 filename = '20231108.html'
 
-url = "https://www.meteociel.fr/temps-reel/obs_villes.php?code2=59512001&jour2=12&mois2=9&annee2=2023&affint=1"
+day = 12
+# month number is 0 indexed, apparently
+month = 10 - 1
+year = 2023
+url = f"https://www.meteociel.fr/temps-reel/obs_villes.php?code2=59512001&jour2={day}&mois2={month}&annee2={year}&affint=1"
 r = requests.get(url)
 
 # Apparently this website is not using UTF encoding for some reason
