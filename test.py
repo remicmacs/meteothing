@@ -7,6 +7,7 @@ import pandas as pd
 from dateutil import relativedelta as rdt
 from suncalc import get_position, get_times
 
+# Roubaix
 LON = 3.167050
 LAT = 50.683330
 TOTAL_DAY_DURATION = datetime.timedelta(days=1).total_seconds()
