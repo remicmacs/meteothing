@@ -75,6 +75,8 @@ col.set_cmap(cmap)
 col.set_clim(reference - LIM, reference + LIM)
 ax.add_collection(col)
 
+print(list(range(FIRST, LAST + 1)))
+
 upper_col = PatchCollection([
     Rectangle((y, 1), 1, 1)
     for y in range(FIRST, LAST + 1)
